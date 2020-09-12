@@ -1,0 +1,4 @@
+include ':login'
+include ':basiclib'
+include ':app'
+rootProject.name = "JetCore"

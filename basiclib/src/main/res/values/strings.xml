@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="now_loading">加载中...</string>
+    <string name="error_message">发生错误了</string>
+    <string name="empty_message">没有数据哎～</string>
+</resources>
