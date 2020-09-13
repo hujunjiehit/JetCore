@@ -6,7 +6,7 @@ import com.junehit.jetcore.network.ResponseThrowable
  *Created by june
  *on 2020/9/9
  */
-open class BaseRes<T>(val code: Int, val message: String, open val data: T) {
+open class BaseRes<T>(open val code: Int, open val message: String, open val data: T) {
 
     open fun isSuccess() = code == 200
 
