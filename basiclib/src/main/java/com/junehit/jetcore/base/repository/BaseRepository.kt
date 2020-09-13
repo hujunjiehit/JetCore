@@ -1,5 +1,6 @@
 package com.junehit.jetcore.base.repository
 
+import com.junehit.jetcore.context.ContextRepo
 import com.junehit.jetcore.utils.CommonUtil
 import com.qmuiteam.qmui.arch.QMUISwipeBackActivityManager
 import dagger.hilt.EntryPoint
@@ -15,7 +16,7 @@ import retrofit2.Retrofit
 open class BaseRepository<T :  BaseApiService>() {
 
     val mApiService by lazy {
-        EntryPointAccessors.fromApplication(QMUISwipeBackActivityManager.getInstance().currentActivity!!.applicationContext, RetrofitEntryPoint::class.java)
+        EntryPointAccessors.fromApplication(ContextRepo.mContext, RetrofitEntryPoint::class.java)
             .retrofit().create(CommonUtil.getClass<T>(this))
     }
 

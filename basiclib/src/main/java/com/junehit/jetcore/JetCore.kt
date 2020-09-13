@@ -1,6 +1,7 @@
 package com.junehit.jetcore
 
 import android.app.Application
+import com.junehit.jetcore.context.ContextRepo
 import com.junehit.jetcore.kotlin.logd
 import com.junehit.jetcore.loadsir.EmptyCallback
 import com.junehit.jetcore.loadsir.ErrorCallback
@@ -19,6 +20,9 @@ import com.tencent.mmkv.MMKV
 object JetCore {
 
     fun initJetCore(application : Application) {
+
+        ContextRepo.mContext = application
+
         initLogger()
 
         val rootDir = MMKV.initialize(application)
