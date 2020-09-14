@@ -90,7 +90,7 @@ abstract class BaseActivity(@LayoutRes var layoutId : Int) : QMUIActivity(){
 
     open fun hideTopBar(): Boolean = false
 
-    fun registerUiEvent(viewModel : BaseViewModel<*>) {
+    fun registerUiEvent(viewModel : BaseViewModel) {
         viewModel.uiEvent.showLoading.observe(this, Observer {
             showLoading()
         })

@@ -11,7 +11,7 @@ import com.junehit.jetcore.sp.SpDeleagte
  *Created by june
  *on 2020/9/8
  */
-class TestViewModel : BaseViewModel<TestRespository>() {
+class TestViewModel(val testRespository: TestRespository) : BaseViewModel() {
 
     // 从Sp读取数据
     var cache by SpDeleagte("data", 1)
@@ -27,8 +27,8 @@ class TestViewModel : BaseViewModel<TestRespository>() {
 
 
     fun getBanner() : LiveData<List<Banner>> = emit(true) {
-        Log.e("getBanner","$this  === $mRepository")
-        mRepository.getBanner()
+        Log.e("getBanner","$this  === $testRespository")
+        testRespository.getBanner()
     }
 
 }

@@ -11,12 +11,12 @@ import kotlinx.coroutines.delay
  *Created by june
  *on 2020/9/10
  */
-class LoginRepository : BaseRepository<LoginApiService>() {
+class LoginRepository(val apiService: LoginApiService) : BaseRepository() {
 
     suspend fun doLogin(username: String, password : String) : UserInfo {
         delay(2000)
 
-        val login = mApiService.login(username, password).convertData()
+        val login = apiService.login(username, password).convertData()
 
         login.toString().loge()
         return login

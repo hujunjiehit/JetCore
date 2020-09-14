@@ -6,21 +6,19 @@ import com.junehit.app.adapter.DataAdapter
 import com.junehit.app.databinding.ActivitySecondBinding
 import com.junehit.jetcore.base.activity.BaseDBActivity
 import com.junehit.jetcore.kotlin.logd
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_second.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import javax.inject.Inject
+import org.koin.android.ext.android.inject
 import kotlin.random.Random
 
 /**
  *Created by june
  *on 2020/8/31
  */
-@AndroidEntryPoint
 class SecondActivity : BaseDBActivity<SecondViewModel, ActivitySecondBinding>(R.layout.activity_second){
 
-    @Inject lateinit var mAdapter : DataAdapter
+    val mAdapter : DataAdapter by inject()
 
     override fun initView() {
         setTitle("second")
@@ -30,8 +28,6 @@ class SecondActivity : BaseDBActivity<SecondViewModel, ActivitySecondBinding>(R.
         recyclerView.adapter = mAdapter
 
         mAdapter.toString().logd()
-
-
 
         showError()
     }

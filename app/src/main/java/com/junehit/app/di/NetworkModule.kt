@@ -1,19 +1,15 @@
 package com.junehit.app.di
 
 import android.util.Log
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
 import okhttp3.Interceptor
 import okhttp3.Interceptor.Companion.invoke
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.UnsupportedEncodingException
 import java.net.URLDecoder
-import javax.inject.Singleton
 
 
 /**
@@ -21,11 +17,18 @@ import javax.inject.Singleton
  *on 2020/9/9
  */
 
-@Module
-@InstallIn(ApplicationComponent::class)
+val networkModule = module {
+    single {
+        NetworkModule.provideOkHttpClient()
+    }
+
+    single {
+        NetworkModule.provideRetrofit(get())
+    }
+}
+
 object NetworkModule {
 
-    @Provides
     fun provideOkHttpClient() : OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(logInterceptor("httpLog"))
@@ -33,8 +36,6 @@ object NetworkModule {
             .build()
     }
 
-    @Provides
-    @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient) : Retrofit {
         return Retrofit.Builder().baseUrl("http://a.test.atomchain.vip")
             .addConverterFactory(GsonConverterFactory.create())

@@ -3,7 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
-apply plugin: 'dagger.hilt.android.plugin'
 
 apply plugin: 'com.github.dcendents.android-maven'
 
@@ -94,10 +93,10 @@ dependencies {
     api Deps.logger
 
     //依赖注入
-    api Deps.hilt
-    kapt Deps.hilt_compile
-    api Deps.hilt_lifecycle
-    kapt Deps.hilt_lifecycle_compile
+    api Deps.koin_scope
+    api Deps.koin_viewmodel
+    api Deps.koin_fragment
+    api Deps.koin_ext
 
     //工具类
     api Deps.mmkv

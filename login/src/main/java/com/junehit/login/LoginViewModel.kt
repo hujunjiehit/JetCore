@@ -10,7 +10,7 @@ import com.junehit.login.repository.LoginRepository
  *Created by june
  *on 2020/9/10
  */
-class LoginViewModel : BaseViewModel<LoginRepository>() {
+class LoginViewModel(private val loginRepository: LoginRepository) : BaseViewModel() {
 
     var userName = MutableLiveData<String>()
     var passWord = MutableLiveData<String>()
@@ -20,7 +20,7 @@ class LoginViewModel : BaseViewModel<LoginRepository>() {
 
         launch(true) {
             Thread.currentThread().name.loge()
-            mRepository.doLogin(userName.value ?: "", passWord.value ?:"")
+            loginRepository.doLogin(userName.value ?: "", passWord.value ?:"")
         }
     }
 }

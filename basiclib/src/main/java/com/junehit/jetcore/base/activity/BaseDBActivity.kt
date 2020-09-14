@@ -8,12 +8,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.junehit.jetcore.R
 import com.junehit.jetcore.base.viewmodel.BaseViewModel
 import com.junehit.jetcore.utils.CommonUtil
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
  *Created by june
  *on 2020/8/31
  */
-abstract class BaseDBActivity<VM : BaseViewModel<*>, DB : ViewDataBinding>(layoutId : Int) : BaseActivity(layoutId) {
+abstract class BaseDBActivity<VM : BaseViewModel, DB : ViewDataBinding>(layoutId : Int) : BaseActivity(layoutId) {
 
     protected lateinit var mViewModel: VM
     protected lateinit var mDataBinding: DB
@@ -30,7 +31,7 @@ abstract class BaseDBActivity<VM : BaseViewModel<*>, DB : ViewDataBinding>(layou
     }
 
     override fun initViewModel() {
-        mViewModel = ViewModelProvider(this).get(CommonUtil.getClass(this))
+        mViewModel = getViewModel(clazz = CommonUtil.getClass<VM>(this).kotlin)
 
         registerUiEvent(mViewModel)
     }

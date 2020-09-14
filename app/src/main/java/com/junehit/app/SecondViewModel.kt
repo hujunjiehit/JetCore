@@ -8,7 +8,7 @@ import com.junehit.jetcore.base.viewmodel.BaseViewModel
  *Created by june
  *on 2020/9/1
  */
-class SecondViewModel : BaseViewModel<TestRespository>() {
+class SecondViewModel : BaseViewModel() {
 
     var count : MutableLiveData<Int> = MutableLiveData(0)
 

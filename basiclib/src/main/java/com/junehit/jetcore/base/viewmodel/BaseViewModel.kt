@@ -14,16 +14,16 @@ import kotlinx.coroutines.withContext
  *Created by june
  *on 2020/8/31
  */
-open class BaseViewModel<R : BaseRepository<*>> : ViewModel() {
+open class BaseViewModel : ViewModel() {
 
-    val mRepository : R by lazy {
-        // 获取对应Repository 实例 (有参构造函数)
-        (CommonUtil.getClass<R>(this))
-            // 获取构造函数的构造器，传入参数class
-            //.getDeclaredConstructor(BaseApiService::class.java)
-            // 传入加载状态
-            .newInstance()
-    }
+//    val mRepository : R by lazy {
+//        // 获取对应Repository 实例 (有参构造函数)
+//        (CommonUtil.getClass<R>(this))
+//            // 获取构造函数的构造器，传入参数class
+//            //.getDeclaredConstructor(BaseApiService::class.java)
+//            // 传入加载状态
+//            .newInstance()
+//    }
 
     val uiEvent by lazy { UIEvent() }
 

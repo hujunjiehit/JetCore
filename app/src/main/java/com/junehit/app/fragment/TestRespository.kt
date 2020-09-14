@@ -11,10 +11,10 @@ import kotlinx.coroutines.delay
  *Created by june
  *on 2020/9/10
  */
-class TestRespository : BaseRepository<ApiService>() {
+class TestRespository(val apiService: ApiService) : BaseRepository() {
 
     suspend fun getBanner() : List<Banner> {
-        val banner = mApiService.getBanner("APP").convertData()
+        val banner = apiService.getBanner("APP").convertData()
         delay(2000)
         return banner
     }

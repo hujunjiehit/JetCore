@@ -3,7 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
-apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion Versions.compileSdk
@@ -49,10 +48,6 @@ dependencies {
     implementation project(":basiclib")
     implementation project(":login")
 
-    implementation Deps.hilt
-
     kapt Deps.glide_compile
     kapt Deps.qmui_arch_compile
-    kapt Deps.hilt_compile
-    kapt Deps.hilt_lifecycle_compile
 }

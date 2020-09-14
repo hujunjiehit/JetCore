@@ -3,7 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
-apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion Versions.compileSdk
@@ -47,12 +46,9 @@ dependencies {
 
     implementation project(":basiclib")
 
-    implementation Deps.hilt
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
 
     kapt Deps.glide_compile
     kapt Deps.qmui_arch_compile
-    kapt Deps.hilt_compile
-    kapt Deps.hilt_lifecycle_compile
 }

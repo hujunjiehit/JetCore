@@ -105,7 +105,7 @@ abstract class BaseFragment(@LayoutRes var layoutId : Int) :  Fragment(){
     open fun onFragmentHide() {}
 
 
-    fun registerUiEvent(viewModel : BaseViewModel<*>) {
+    fun registerUiEvent(viewModel : BaseViewModel) {
         viewModel.uiEvent.showLoading.observe(this, Observer {
             showLoading()
         })

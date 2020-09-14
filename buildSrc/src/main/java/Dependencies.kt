@@ -26,6 +26,7 @@ object Versions {
     internal const val mmkv = "1.2.2"
     internal const val utilcode = "1.29.0"
     internal const val hilt = "2.28-alpha"
+    internal const val koin = "2.2.0-beta-1"    //https://github.com/InsertKoinIO/koin
 }
 
 object Deps {
@@ -75,7 +76,14 @@ object Deps {
 
     const val utilcode = "com.blankj:utilcodex:${Versions.utilcode}"
 
-    //依赖注入
+
+    //依赖注入 -- koin
+    const val koin_scope = "org.koin:koin-androidx-scope:${Versions.koin}"
+    const val koin_viewmodel = "org.koin:koin-androidx-viewmodel:${Versions.koin}"
+    const val koin_fragment = "org.koin:koin-androidx-fragment:${Versions.koin}"
+    const val koin_ext = "org.koin:koin-androidx-ext:${Versions.koin}"
+
+    //依赖注入 -- hilt
     const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
     const val hilt_compile = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
     const val hilt_lifecycle = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha01"

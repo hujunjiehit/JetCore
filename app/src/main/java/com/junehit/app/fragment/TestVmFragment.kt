@@ -7,14 +7,12 @@ import com.junehit.jetcore.kotlin.logd
 import com.junehit.jetcore.kotlin.loge
 import com.junehit.jetcore.kotlin.startActivity
 import com.junehit.login.LoginActivity
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_test.*
 
 /**
  *Created by june
  *on 2020/9/8
  */
-@AndroidEntryPoint
 class TestVmFragment : BaseVMFragment<TestViewModel>(R.layout.fragment_test) {
 
     override fun initView() {

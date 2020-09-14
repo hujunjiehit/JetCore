@@ -6,10 +6,8 @@ import com.junehit.app.fragment.TestFragment
 import com.junehit.app.fragment.TestVmFragment
 import com.junehit.jetcore.base.activity.BaseVMActivity
 import com.junehit.jetcore.kotlin.initWithTabsegment
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
-@AndroidEntryPoint
 class MainActivity : BaseVMActivity<MainViewModel>(R.layout.activity_main) {
 
     override fun initView() {
